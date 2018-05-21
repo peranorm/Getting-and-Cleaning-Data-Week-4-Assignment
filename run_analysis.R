@@ -26,12 +26,12 @@ Sub_total <- rbind(Sub_train, Sub_test)
 selected_var <- variable_names[grep("mean\\(\\)|std\\(\\)",variable_names[,2]),]
 X_total <- X_total[,selected_var[,1]]
 
-# 3. Uses descriptive activity names to name the activities in the data set
+# 3. descriptive activity names to name the activities in the data set
 colnames(Y_total) <- "activity"
 Y_total$activitylabel <- factor(Y_total$activity, labels = as.character(activity_labels[,2]))
 activitylabel <- Y_total[,-1]
 
-# 4. Appropriately labels the data set with descriptive variable names.
+# 4. labels the data set with descriptive variable names.
 colnames(X_total) <- variable_names[selected_var[,1],2]
 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average
